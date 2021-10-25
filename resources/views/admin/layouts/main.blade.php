@@ -50,12 +50,6 @@
               <span class="align-middle">Transactions</span>
             </a>
           </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link" href="#">
-              <i class="align-middle" data-feather="users"></i>
-              <span class="align-middle">Data User</span>
-            </a>
-          </li>
           @endif
 
           <li class="sidebar-header">
@@ -74,7 +68,7 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="#">
+            <a class="sidebar-link" href="{{ route('admin.profile.edit') }}">
               <i class="align-middle" data-feather="settings"></i>
               <span class="align-middle">Settings</span>
             </a>
@@ -110,7 +104,7 @@
                 <a class="dropdown-item" href="{{ route('cart.index') }}">
                   <i class="align-middle mr-1" data-feather="shopping-cart"></i> Shopping Cart
                 </a>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{ route('admin.profile.edit') }}">
                   <i class="align-middle mr-1" data-feather="settings"></i>
                   Settings
                 </a>
