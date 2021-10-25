@@ -72,6 +72,16 @@
     <div class="row justify-content-center">
       @foreach ($latestCategories as $category)
       <div class="col-md-4">
+        @if ($category->image)
+        <a href="{{ route('product.index', ['category' => $category->slug]) }}"
+          class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+          style="background-image: url({{ asset('storage/'.$category->image) }})">
+          <div class="text px-3 py-1">
+            <h2 class="mb-0 text-white">{{ $category->name }}
+            </h2>
+          </div>
+        </a>
+        @else
         <a href="{{ route('product.index', ['category' => $category->slug]) }}"
           class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
           style="background-image: url({{ asset('storage/category-image/category-default.jpg') }})">
@@ -80,6 +90,7 @@
             </h2>
           </div>
         </a>
+        @endif
       </div>
       @endforeach
     </div>

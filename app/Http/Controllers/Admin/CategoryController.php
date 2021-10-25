@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -44,8 +45,13 @@ class CategoryController extends Controller
     {
         $validatedData = $request->validate([
             "name" => "required|max:50",
-            "slug" => "required|unique:categories"
+            "slug" => "required|unique:categories",
+            "image" => "image|file|max:1024"
         ]);
+
+        if ($request->file("image")) {
+            $validatedData["image"] = $request->file("image")->store("category-image");
+        }
 
         Category::create($validatedData);
 
@@ -86,13 +92,24 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $rules = ['name' => 'required|max:50'];
+        $rules = [
+            'name' => 'required|max:50',
+            "image" => "image|file|max:1024"
+        ];
 
         if ($request->slug != $category->slug) {
             $rules["slug"] = "required|unique:categories";
         }
 
         $validatedData = $request->validate($rules);
+
+        if ($request->file("image")) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData["image"] = $request->file("image")->store("category-image");
+        }
+
         Category::where("id", $category->id)->update($validatedData);
 
         return redirect()->route('admin.category.index')->with("success", "Success Updating Category");
