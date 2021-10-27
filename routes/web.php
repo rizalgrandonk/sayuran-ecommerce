@@ -29,6 +29,15 @@ Route::group(['middleware' => 'guest'], function () {
         ->name('login');
     Route::post('/login', [App\Http\Controllers\AuthController::class, 'authenticate'])
         ->name('authenticate');
+
+    Route::get('/forgot-password', [App\Http\Controllers\AuthController::class, 'forgot_password'])
+        ->name('password.request');
+    Route::post('/forgot-password', [App\Http\Controllers\AuthController::class, 'email_password'])
+        ->name('password.email');
+    Route::get('/reset-password/{token}', [App\Http\Controllers\AuthController::class, 'reset_password'])
+        ->name('password.reset');
+    Route::post('/reset-password', [App\Http\Controllers\AuthController::class, 'update_password'])
+        ->name('password.update');
 });
 
 Route::get('/cities', [App\Http\Controllers\AuthController::class, 'get_cities'])
@@ -85,6 +94,9 @@ Route::group(["prefix" => "admin", "as" => "admin.", 'middleware' => 'auth'], fu
 
         Route::get("/transaction", [App\Http\Controllers\Admin\TransactionController::class, "index"])->name("transaction.index");
         Route::put("/transaction/reciept/{transaction}", [App\Http\Controllers\Admin\TransactionController::class, "set_reciept"])->name("transaction.reciept");
+
+        Route::get("/user", [App\Http\Controllers\Admin\UserController::class, "index"])->name("user.index");
+        Route::put("/user/role/{user}", [App\Http\Controllers\Admin\UserController::class, "update_role"])->name("user.role");
 
         Route::resource('product', App\Http\Controllers\Admin\ProductController::class);
         Route::resource('category', App\Http\Controllers\Admin\CategoryController::class);
