@@ -42,8 +42,8 @@
 
 <section class="ftco-section img" style="background-image: url({{ asset('home-asset/images/bg_3.jpg') }});">
   <div class="container">
-    <div class="row justify-content-end">
-      <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
+    <div class="row justify-content-center">
+      <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate text-center">
         <span class="subheading">Best Deal For You</span>
         <h2 class="mb-4">Get fresh fruits and vegetables</h2>
         <a href="{{ route('product.index') }}" class="btn btn-primary">

@@ -18,54 +18,54 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'is_admin' => true,
-            'firstname' => 'Rizal',
-            'lastname' => 'Grandonk',
-            'email' => 'grandonk.cm@gmail.com',
-            'password' => bcrypt('66666666'),
-            'address' => 'Dawarblandong',
+            'firstname' => 'Tri',
+            'lastname' => 'Kurniawan',
+            'email' => 'trikurniawan02091998@gmail.com',
+            'password' => bcrypt('Trikurniawan1927'),
+            'address' => 'UNTAG',
             'province_id' => '11',
             'province' => 'Jawa Timur',
-            'city_id' => '133',
-            'city' => 'Kabupaten Gresik',
-            'postal_code' => '61354',
+            'city_id' => '444',
+            'city' => 'Kota Surabaya',
+            'postal_code' => '66666',
             'phone' => '081234567890'
         ]);
 
         Category::create([
-            'name' => 'Sayur',
-            'slug' => 'sayur'
+            'name' => 'Fish',
+            'slug' => 'fish'
         ]);
         Category::create([
-            'name' => 'Buah',
-            'slug' => 'buah'
+            'name' => 'Lobster',
+            'slug' => 'lobster'
         ]);
 
         Product::create([
-            'name' => "Sawi",
+            'name' => "Lizard Fish",
             'category_id' => 1,
-            'slug' => 'sawi',
-            'price' => 10000,
+            'slug' => 'lizard-fish',
+            'price' => 40000,
             'detail' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint asperiores quod ullam sapiente ducimus ab veritatis natus doloribus praesentium, tempora repellat voluptatem! Nostrum illum ad eaque quis architecto, incidunt voluptatum.Eum, amet? Necessitatibus, minima atque? Dolor accusantium provident vitae adipisci velit dicta porro mollitia cumque consequatur in recusandae nemo, quisquam odit tempora delectus, dolore maxime doloribus suscipit odio asperiores molestiae!',
         ]);
         Product::create([
-            'name' => "Kubis",
+            'name' => "Ribbon Fish",
             'category_id' => 1,
-            'slug' => 'kubis',
-            'price' => 12000,
+            'slug' => 'ribbon-fish',
+            'price' => 38000,
             'detail' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint asperiores quod ullam sapiente ducimus ab veritatis natus doloribus praesentium, tempora repellat voluptatem! Nostrum illum ad eaque quis architecto, incidunt voluptatum.Eum, amet? Necessitatibus, minima atque? Dolor accusantium provident vitae adipisci velit dicta porro mollitia cumque consequatur in recusandae nemo, quisquam odit tempora delectus, dolore maxime doloribus suscipit odio asperiores molestiae!',
         ]);
         Product::create([
-            'name' => "Apel",
+            'name' => "Slipper Lobster",
             'category_id' => 2,
-            'slug' => 'apel',
-            'price' => 17000,
+            'slug' => 'slipper-lobster',
+            'price' => 57000,
             'detail' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint asperiores quod ullam sapiente ducimus ab veritatis natus doloribus praesentium, tempora repellat voluptatem! Nostrum illum ad eaque quis architecto, incidunt voluptatum.Eum, amet? Necessitatibus, minima atque? Dolor accusantium provident vitae adipisci velit dicta porro mollitia cumque consequatur in recusandae nemo, quisquam odit tempora delectus, dolore maxime doloribus suscipit odio asperiores molestiae!',
         ]);
         Product::create([
-            'name' => "Jeruk",
+            'name' => "Bamboo Lobster",
             'category_id' => 2,
-            'slug' => 'jeruk',
-            'price' => 15000,
+            'slug' => 'bamboo-lobster',
+            'price' => 60000,
             'detail' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint asperiores quod ullam sapiente ducimus ab veritatis natus doloribus praesentium, tempora repellat voluptatem! Nostrum illum ad eaque quis architecto, incidunt voluptatum.Eum, amet? Necessitatibus, minima atque? Dolor accusantium provident vitae adipisci velit dicta porro mollitia cumque consequatur in recusandae nemo, quisquam odit tempora delectus, dolore maxime doloribus suscipit odio asperiores molestiae!',
         ]);
     }
