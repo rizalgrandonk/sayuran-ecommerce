@@ -1,16 +1,15 @@
 @extends('layouts.main')
 
 @section('content')
-
   <section class="ftco-section">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 mb-5 ftco-animate">
           @if ($product->image)
-            <img src="{{ asset('storage/' . $product->image) }}"
-              class="img-fluid" alt="{{ $product->name }}">
+            <img src="{{ $product->image }}" class="img-fluid"
+              alt="{{ $product->name }}">
           @else
-            <img src="{{ asset('storage/product-image/product-default.jpg') }}"
+            <img src="{{ asset('images/product-image/product-default.jpg') }}"
               class="img-fluid" alt="{{ $product->name }}">
           @endif
         </div>
@@ -32,10 +31,10 @@
           @if ($cart->where('id', $product->id)->count())
             <h5>Already In Cart</h5>
           @else
-
             <form action="{{ route('cart.store') }}" method="POST">
               @csrf
-              <input type="hidden" name="product_id" value="{{ $product->id }}">
+              <input type="hidden" name="product_id"
+                value="{{ $product->id }}">
 
               <div class="row mt-4">
                 <div class="input-group col-md-6 d-flex mb-3">
@@ -45,8 +44,9 @@
                       <i class="ion-ios-remove"></i>
                     </button>
                   </span>
-                  <input type="text" id="quantity" value="1" name="quantity"
-                    class="form-control input-number" min="1" max="100">
+                  <input type="text" id="quantity" value="1"
+                    name="quantity" class="form-control input-number"
+                    min="1" max="100">
                   <span class="input-group-btn ml-2">
                     <button type="button" class="quantity-right-plus btn"
                       data-type="plus" data-field="">
@@ -61,7 +61,6 @@
                 </button>
               </p>
             </form>
-
           @endif
         </div>
 
@@ -89,15 +88,14 @@
               @if ($product->image)
                 <a href="{{ route('product.show', $product) }}"
                   class="img-prod"><img class="img-fluid"
-                    src="{{ asset('storage/' . $product->image) }}"
-                    alt="Colorlib Template"
+                    src="{{ $product->image }}" alt="Colorlib Template"
                     style="min-height:260px;max-height:260px;width:100%;">
                   <div class="overlay"></div>
                 </a>
               @else
                 <a href="{{ route('product.show', $product) }}"
                   class="img-prod"><img class="img-fluid"
-                    src="{{ asset('storage/product-image/product-default.jpg') }}"
+                    src="{{ asset('images/product-image/product-default.jpg') }}"
                     alt="Colorlib Template"
                     style="min-height:260px;max-height:260px;width:100%;">
                   <div class="overlay"></div>
@@ -140,11 +138,9 @@
       </div>
     </div>
   </section>
-
 @endsection
 
 @section('script')
-
   <script>
     $(document).ready(function() {
 
@@ -180,5 +176,4 @@
       });
     });
   </script>
-
 @endsection

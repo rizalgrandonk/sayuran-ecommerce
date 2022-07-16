@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Http\Controllers\CloudinaryStorage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -55,7 +56,9 @@ class ProductController extends Controller
         ]);
 
         if ($request->file("image")) {
-            $validatedData["image"] = $request->file("image")->store("product-image");
+            $image  = $request->file('image');
+            $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
+            $validatedData["image"] = $result;
         }
 
         Product::create($validatedData);
@@ -114,9 +117,14 @@ class ProductController extends Controller
 
         if ($request->file("image")) {
             if ($request->oldImage) {
-                Storage::delete($request->oldImage);
+                $file   = $request->file('image');
+                $result = CloudinaryStorage::replace($product->image, $file->getRealPath(), $file->getClientOriginalName());
+                $validatedData["image"] = $result;
+            } else {
+                $image  = $request->file('image');
+                $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
+                $validatedData["image"] = $result;
             }
-            $validatedData["image"] = $request->file("image")->store("product-image");
         }
 
         Product::where("id", $product->id)->update($validatedData);
@@ -132,6 +140,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        if ($product->image) {
+            CloudinaryStorage::delete($product->image);
+        }
+
         Product::destroy($product->id);
 
         return redirect()->route('admin.product.index')->with("success", "Success Deleting Product");

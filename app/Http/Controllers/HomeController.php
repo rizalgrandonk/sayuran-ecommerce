@@ -14,7 +14,7 @@ class HomeController extends Controller
         $latestProducts = Product::latest()->get()->take(8);
         $latestCategories = Category::latest()->get()->take(6);
         return view('index', [
-            'title' => 'Sok Kabeh',
+            'title' => 'Vege Food',
             'cart' => Cart::content(),
             'latestProducts' => $latestProducts,
             'latestCategories' => $latestCategories

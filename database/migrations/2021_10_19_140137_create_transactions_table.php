@@ -20,11 +20,11 @@ class CreateTransactionsTable extends Migration
             $table->uuid('transaction_id');
             $table->string('status');
             $table->string('status_code');
-            $table->integer('total');
+            $table->float('total');
             $table->string('payment_type');
             $table->string('payment_code')->nullable();
             $table->string('pdf_url')->nullable();
-            $table->integer('delivery_cost');
+            $table->float('delivery_cost');
             $table->string('delivery_service');
             $table->string('reciept_number')->nullable();
             $table->timestamps();

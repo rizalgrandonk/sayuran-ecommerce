@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Http\Controllers\CloudinaryStorage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -50,7 +51,10 @@ class CategoryController extends Controller
         ]);
 
         if ($request->file("image")) {
-            $validatedData["image"] = $request->file("image")->store("category-image");
+            // $validatedData["image"] = $request->file("image")->store("category-image");
+            $image  = $request->file('image');
+            $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
+            $validatedData["image"] = $result;
         }
 
         Category::create($validatedData);
@@ -105,9 +109,14 @@ class CategoryController extends Controller
 
         if ($request->file("image")) {
             if ($request->oldImage) {
-                Storage::delete($request->oldImage);
+                $file   = $request->file('image');
+                $result = CloudinaryStorage::replace($category->image, $file->getRealPath(), $file->getClientOriginalName());
+                $validatedData["image"] = $result;
+            } else {
+                $image  = $request->file('image');
+                $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
+                $validatedData["image"] = $result;
             }
-            $validatedData["image"] = $request->file("image")->store("category-image");
         }
 
         Category::where("id", $category->id)->update($validatedData);
@@ -123,6 +132,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        if ($category->image) {
+            CloudinaryStorage::delete($category->image);
+        }
         Category::destroy($category->id);
 
         return redirect()->route('admin.category.index')->with("success", "Success Deleting Category");

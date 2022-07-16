@@ -24,8 +24,8 @@ class CartController extends Controller
     {
         $product = Product::findOrFail($request->input('product_id'));
         $image = $product->image
-            ?  asset('storage/' . $product->image)
-            : asset('storage/product-image/product-default.jpg');
+            ?  $product->image
+            : asset('images/product-image/product-default.jpg');
 
         $options = [
             'image' => $image

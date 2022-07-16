@@ -44,7 +44,7 @@ class CheckoutController extends Controller
 
     public function get_token()
     {
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-nDv_Z65iSjuX0xw6zXK6MeuD';
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-EYitftr-YMqoog1l-tsovZnJ';
         \Midtrans\Config::$isProduction = false;
         \Midtrans\Config::$isSanitized = true;
         \Midtrans\Config::$is3ds = true;

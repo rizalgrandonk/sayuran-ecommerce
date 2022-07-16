@@ -60,8 +60,7 @@
             </li>
             <li
               class="sidebar-item {{ Request::routeIs('admin.user.*') ? 'active' : '' }}">
-              <a class="sidebar-link"
-                href="{{ route('admin.user.index') }}">
+              <a class="sidebar-link" href="{{ route('admin.user.index') }}">
                 <i class="align-middle" data-feather="users"></i>
                 <span class="align-middle">User Management</span>
               </a>
@@ -89,8 +88,7 @@
           </li>
           <li
             class="sidebar-item {{ Request::routeIs('admin.profile.edit*') ? 'active' : '' }}">
-            <a class="sidebar-link"
-              href="{{ route('admin.profile.edit') }}">
+            <a class="sidebar-link" href="{{ route('admin.profile.edit') }}">
               <i class="align-middle" data-feather="settings"></i>
               <span class="align-middle">Settings</span>
             </a>
@@ -138,8 +136,8 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('home') }}">Kembali
                   ke Website</a>
-                <button class="dropdown-item" type="button" data-toggle="modal"
-                  data-target="#logoutModal">
+                <button class="dropdown-item" type="button"
+                  data-toggle="modal" data-target="#logoutModal">
                   Log out
                 </button>
               </div>
@@ -190,7 +188,7 @@
         <div class="container-fluid">
           <div class="row text-muted">
             <div class="col-6 text-left">
-              <p class="mb-0"><strong>Sok Kabeh</strong>
+              <p class="mb-0"><strong>Vege Food</strong>
                 &copy;
               </p>
             </div>

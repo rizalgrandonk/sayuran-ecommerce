@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'is_admin' => true,
-            'firstname' => 'Tri',
-            'lastname' => 'Kurniawan',
-            'email' => 'trikurniawan02091998@gmail.com',
-            'password' => bcrypt('Trikurniawan1927'),
-            'address' => 'UNTAG',
+            'firstname' => 'Rizal',
+            'lastname' => 'Grandonk',
+            'email' => 'grandonk457@gmail.com',
+            'password' => bcrypt('22012000'),
+            'address' => 'Rungkut',
             'province_id' => '11',
             'province' => 'Jawa Timur',
             'city_id' => '444',
@@ -32,39 +32,39 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Category::create([
-            'name' => 'Fish',
-            'slug' => 'fish'
+            'name' => 'Buah',
+            'slug' => 'buah'
         ]);
         Category::create([
-            'name' => 'Lobster',
-            'slug' => 'lobster'
+            'name' => 'Sayur',
+            'slug' => 'sayur'
         ]);
 
         Product::create([
-            'name' => "Lizard Fish",
+            'name' => "Apple",
             'category_id' => 1,
-            'slug' => 'lizard-fish',
+            'slug' => 'apple',
             'price' => 40000,
             'detail' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint asperiores quod ullam sapiente ducimus ab veritatis natus doloribus praesentium, tempora repellat voluptatem! Nostrum illum ad eaque quis architecto, incidunt voluptatum.Eum, amet? Necessitatibus, minima atque? Dolor accusantium provident vitae adipisci velit dicta porro mollitia cumque consequatur in recusandae nemo, quisquam odit tempora delectus, dolore maxime doloribus suscipit odio asperiores molestiae!',
         ]);
         Product::create([
-            'name' => "Ribbon Fish",
+            'name' => "Banana",
             'category_id' => 1,
-            'slug' => 'ribbon-fish',
+            'slug' => 'banana',
             'price' => 38000,
             'detail' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint asperiores quod ullam sapiente ducimus ab veritatis natus doloribus praesentium, tempora repellat voluptatem! Nostrum illum ad eaque quis architecto, incidunt voluptatum.Eum, amet? Necessitatibus, minima atque? Dolor accusantium provident vitae adipisci velit dicta porro mollitia cumque consequatur in recusandae nemo, quisquam odit tempora delectus, dolore maxime doloribus suscipit odio asperiores molestiae!',
         ]);
         Product::create([
-            'name' => "Slipper Lobster",
+            'name' => "Cucumber",
             'category_id' => 2,
-            'slug' => 'slipper-lobster',
+            'slug' => 'cucumber',
             'price' => 57000,
             'detail' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint asperiores quod ullam sapiente ducimus ab veritatis natus doloribus praesentium, tempora repellat voluptatem! Nostrum illum ad eaque quis architecto, incidunt voluptatum.Eum, amet? Necessitatibus, minima atque? Dolor accusantium provident vitae adipisci velit dicta porro mollitia cumque consequatur in recusandae nemo, quisquam odit tempora delectus, dolore maxime doloribus suscipit odio asperiores molestiae!',
         ]);
         Product::create([
-            'name' => "Bamboo Lobster",
+            'name' => "Broccoli",
             'category_id' => 2,
-            'slug' => 'bamboo-lobster',
+            'slug' => 'broccoli',
             'price' => 60000,
             'detail' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint asperiores quod ullam sapiente ducimus ab veritatis natus doloribus praesentium, tempora repellat voluptatem! Nostrum illum ad eaque quis architecto, incidunt voluptatum.Eum, amet? Necessitatibus, minima atque? Dolor accusantium provident vitae adipisci velit dicta porro mollitia cumque consequatur in recusandae nemo, quisquam odit tempora delectus, dolore maxime doloribus suscipit odio asperiores molestiae!',
         ]);

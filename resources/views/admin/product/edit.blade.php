@@ -1,7 +1,6 @@
 @extends('admin.layouts.main')
 
 @section('content')
-
   <div class="container-fluid p-0">
 
     <h1 class="display-6 mb-3">{{ $title }}</h1>
@@ -74,7 +73,8 @@
               </div>
 
               <div class="form-group row mb-3">
-                <label for="price" class="col-form-label col-sm-2">Price</label>
+                <label for="price"
+                  class="col-form-label col-sm-2">Price</label>
                 <div class="col-sm-10">
                   <input type="number"
                     class="slug-from form-control @error('price') is-invalid @enderror"
@@ -92,10 +92,12 @@
                 @if ($product->image)
                   <div class="img-container d-flex justify-content-end">
                     <img height="120" width="120"
-                      src="{{ asset('storage/' . $product->image) }}"
+                      src="{{ $product->image }}"
                       class="img-preview mb-2 border border-dark"
                       style="object-fit: cover;">
                   </div>
+                  <input type="hidden" name="oldImage"
+                    value="{{ $product->image }}">
                 @else
                   <div class="d-none img-container justify-content-end">
                     <img height="120" width="120"
@@ -104,9 +106,8 @@
                   </div>
                 @endif
 
-                <label for="image" class="col-form-label col-sm-2">Image</label>
-                <input type="hidden" name="oldImage"
-                  value="{{ $product->sampul }}">
+                <label for="image"
+                  class="col-form-label col-sm-2">Image</label>
 
                 <div class="col-sm-10">
                   <input onchange="previewImg();" name="image"
@@ -121,11 +122,11 @@
               </div>
 
               <div class="form-group row mb-3">
-                <label for="detail" class="col-form-label col-sm-2">Detail</label>
+                <label for="detail"
+                  class="col-form-label col-sm-2">Detail</label>
                 <div class="col-sm-10">
                   <textarea name="detail"
-                    class="form-control @error('detail') is-invalid @enderror"
-                    id="detail"
+                    class="form-control @error('detail') is-invalid @enderror" id="detail"
                     rows="4">{{ old('detail', $product->detail) }}</textarea>
                   @error('detail')
                     <div class="invalid-feedback">
@@ -179,7 +180,6 @@
       </div>
     </div>
   </div>
-
 @endsection
 
 
