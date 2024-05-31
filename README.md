@@ -14,13 +14,14 @@ Ecommerce with Laravel
 Cara Running:
 
 1. buka terminal (ex: Git Bash)
-2. run comand `git clone https://github.com/rizalgrandonk/sayuran-ecommerce.git`
-3. run comand `cd sayuran-ecommerce`
-4. run comand `mv .env.example`
+2. run command `git clone https://github.com/rizalgrandonk/sayuran-ecommerce.git`
+3. run command `cd sayuran-ecommerce`
+4. run command `mv .env.example`
 5. buat database baru (terminal jangan ditutup)
 6. ganti nama database di file .env `DB_DATABASE` sesuai nama database yang baru dibuat
 7. buka lagi terminal sebelumnya
-8. run comand `composer install`
+8. run command `composer install`
 9. run command `php artisan key:generate`
 10. run command `php artisan migrate:fresh --seed`
 11. run command `php artisan serve`
+12. buka http://localhost:8000
